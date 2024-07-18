@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)file:///C:/Users/ange_/Downloads/Untitled-1.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG TOOLKIT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./accueil_files/css2" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./accueil_files/css2(1)" rel="stylesheet">
+<style>
+     :root {
+        --color1: #333333;
+        --color2: #897f99;
+        --color3: #9d93ad;
+        --color4: #d6cfe2;
+        --color5: #9993a3;
+        --color6: #fff;
+        --font1: 'Montserrat';
+        --font2: 'Bebas Neue';
+    }
+    /*animation*/
+    
+    @-webkit-keyframes rotate-center {
+        0% {
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes rotate-center {
+        0% {
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+    /*pagedarrivee*/
+    
+    body {
+        display: flex;
+        justify-content: space-evenly;
+        background-color: var(--color4);
+        flex-direction: column;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
+        position: relative;
+        height: 100%;
+    }
+    
+    .bodyarrived
+    /*corpsdelapagedarrivee*/
+    
+    {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        width: 30vh;
+        text-align: center;
+        background: var(--color4);
+    }
+    
+    a.homemenu img
+    /*image du menu*/
+    
+    {
+        width: 20vh;
+        padding: 40px;
+    }
+    
+    a.homemenu img:hover,
+    .firstzonefooter img:hover {
+        -webkit-animation: rotate-center 0.6s ease-in-out both;
+        animation: rotate-center 0.6s ease-in-out both;
+    }
+    
+    .home {
+        width: 100%;
+        text-align: center;
+        background: var(--color1);
+    }
+    
+    .home img {
+        width: 50vh;
+        text-align: center;
+    }
+    
+    .home p {
+        color: var(--color6);
+        font-family: var(--font1);
+        font-size: 1rem;
+        width: 60%;
+        margin: auto;
+        line-height: 1.9rem;
+        padding-bottom: 2vh;
+    }
+    
+    .home p em {
+        color: var(--color4);
+        font-weight: 800;
+    }
+    
+    footer {
+        background: var(--color2);
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 30px;
+    }
+    
+    .firstzonefooter {
+        display: flex;
+        width: 50%;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--color6);
+    }
+    
+    .firstzonefooter img {
+        width: 10vh;
+    }
+    
+    .secondzonefooter {
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+     :active,
+     :hover,
+     :focus {
+        outline: 0!important;
+        outline-offset: 0;
+    }
+    
+     ::before,
+     ::after {
+        position: absolute;
+        content: "";
+    }
+    
+    .btn-holder {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    button.btn.btn-2.hover-slide-down a {
+        color: var(--color6);
+        text-decoration: none;
+    }
+    
+    .btn {
+        position: relative;
+        display: flex;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        margin: 0px 25px 15px;
+        min-width: 150px;
+    }
+    
+    .btn span {
+        position: relative;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px 20px;
+        transition: 0.3s;
+    }
+    
+    .btn-2::before {
+        background-color: var(--color1);
+        transition: 0.3s ease-out;
+    }
+    
+    .btn-2 span {
+        color: rgb(28, 31, 30);
+        border: 1px solid var(--color1);
+        transition: 0.2s;
+    }
+    
+    .btn-2 span:hover {
+        color: rgb(255, 255, 255);
+        transition: 0.2s 0.1s;
+    }
+    /*  hover-slide-down */
+    
+    .btn.hover-slide-down::before {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 0%;
+        width: 100%;
+    }
+    
+    .btn.hover-slide-down:hover::before {
+        height: 100%;
+    }
+    /*pageaccueil responsive*/
+    
+    @media screen and (max-width: 1475px) {
+        footer {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+        .firstzonefooter {
+            flex-direction: column-reverse;
+        }
+        .secondzonefooter {
+            width: 100%;
+        }
+    }
+</style></head>
+
+
+<body>
+    <div class="bodyarrived">
+        <nav>
+            <a class="homemenu" href="file:///C:/Users/ange_/Downloads/Untitled-1.html#"><img src="./accueil_files/cuqVbY3.png"></a>
+            <a class="homemenu" href="file:///C:/Users/ange_/Downloads/Untitled-1.html#"><img src="./accueil_files/2VEQsCu.png"></a>
+            <a class="homemenu" href="file:///C:/Users/ange_/Downloads/Untitled-1.html#"><img src="./accueil_files/Mq3qfFC.png"></a>
+
+        </nav>
+        <div class="home">
+            <img src="./accueil_files/Juvr4J6.png">
+            <p>Bienvenue, je suis <em>Toolki</em>, et tu es désormais sur FORUM RPG TOOLKIT. <br>Ici, tu trouveras tous les éléments nécessaires pour tes RPG !</p>
+            <p>Besoin d'avoir un trieur à RP intuitif et qui te permettra de ranger rapidement ta liste <i>interminable</i> de rp ? <br>Alors tu devrais cliquer sur <em>Trieur RP</em></p>
+            <p>Au contraire, tu es une quiche en code et tu n'as pas envie de te casser la tête? Le <em>Fich'craft</em> est fait pour toi. <br>Si tu es sur un forum partenaire de notre petit monde, alors tu trouveras une fiche à remplir pour créer ton personnage!</p>
+            <p>Rien de tout cela ne t'intéresse, tu cherches un avatar ? <br>Le <em>Facelaim</em> est là pour toi ! </p>
+        </div>
+    </div>
+    <footer>
+        <div class="firstzonefooter">
+            <a href="file:///C:/Users/ange_/Downloads/Untitled-1.html#"><img src="./accueil_files/saved_resource"></a>
+            <p>Forum Rpg Toolkit, tous droits réservés. Sur une idée de Carmina et Valcret.
+            </p>
+        </div>
+        <div class="secondzonefooter">
+            <div class="btn-holder"><button class="btn btn-2 hover-slide-down">
+                <span><a href="file:///C:/Users/ange_/Downloads/Untitled-1.html#">Devenir partenaires</a></span>
+            </button>
+                <button class="btn btn-2 hover-slide-down">
+                <span><a href="file:///C:/Users/ange_/Downloads/Untitled-1.html#">Discord</a></span>
+            </button>
+                <button class="btn btn-2 hover-slide-down">
+                <span><a href="file:///C:/Users/ange_/Downloads/Untitled-1.html#">Aide</a></span>
+            </button></div>
+        </div>
+
+    </footer>
+
+
+</body></html>
