@@ -6,14 +6,18 @@
   <div class="bodyconnect">
     <!-- Zone du menu -->
     <div class="menu">
-      <a class="menuconnect" href="accueil.html" title="Go accueil"><img src="Image\Toolkit_rpg.png"></a>
-      <a class="menuconnect" href="Facelaim.html" title="Go facelaim"><img src="Image\Facelaime_rpg.png"></a>
-      <a class="menuconnect" href="fiche_craft.html" title="Go Fich'Craft"><img src="Image\fich_craft_rpg.png"></a>
-      <a class="menuconnect" href="trieur.html" title=" Go Trieur"><img src="Image\Trieur_rpg.png"></a>
+      <a class="menuconnect" href="/" title="Go accueil"><img
+        src="../assets/Image/Toolkit_rpg.png"></a>
+      <a class="menuconnect" href="/Facelaim" title="Go facelaim"><img
+        src="../assets/Image/Facelaime_rpg.png"></a>
+      <a class="menuconnect" href="/fichecraft" title="Go Fich'Craft"><img
+        src="../assets/Image/fich_craft_rpg.png"></a>
+      <a class="menuconnect" href="/trieur" title=" Go Trieur"><img
+        src="../assets/Image/Trieur_rpg.png"></a>
     </div>
     <div class="connectiontxt">
       <!--Pour l'enregistrement-->
-      <img src="Image\Trieur_rpg.png">
+      <img src="../assets/Image/Trieur_rpg.png">
 
       <p>Coucou toi, alors, prêt à nous rejoindre ? </p>
       <form id="regForm">

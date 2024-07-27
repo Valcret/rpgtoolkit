@@ -7,8 +7,9 @@
     <!--Menu de gauche-->
     <div id="sidebar-wrapper">
       <!--Icone accueil-->
-      <a href="accueil.html" class="d-block text-center text-decoration-none logo mb-4" title="Retour à l'accueil" data-bs-toggle="tooltip" data-bs-placement="right">
-        <img src="Image/Trieur_rpg.png" />
+      <a href="/" class="d-block text-center text-decoration-none logo mb-4"
+         title="Retour à l'accueil" data-bs-toggle="tooltip" data-bs-placement="right">
+        <img src="../assets/Image/Trieur_rpg.png" />
       </a>
       <!--Zone des onglets homes, +, rp, forum, personnages et aides-->
       <ul class="nav flex-column mb-auto text-center">
@@ -79,7 +80,7 @@
         <section id="section-1" class="content-section">
           <div class="container-fluid">
             <div class="homesectiontrieur">
-              <div class="trieurintrotop"><img class="trieurtoolki" src="Image\Trieur_rpg.png" />
+              <div class="trieurintrotop"><img class="trieurtoolki" src="../assets/Image/Trieur_rpg.png" />
                 <div>
                   <h1>Tu te souviens ? Je suis Toolki ! </h1>
                   <!--Pour tout utilisateur-->
@@ -139,7 +140,7 @@
                     <br/>Attention, si ton forum ou ton forum n'es pas encore enregistré, enregistre-le d'abord !
                     <br/>Oups, tu l'as mis en double ? Va dans la catégorie approprié pour le supprimer d'un coup de clic </p>
                 </div>
-                <img class="trieurtoolki" src="Image\Trieur_rpg.png" />
+                <img class="trieurtoolki" src="../assets/Image/Trieur_rpg.png" />
               </div>
               <div class="ajoutrpfofoperso ">
                 <!--onglets-->
@@ -268,7 +269,7 @@
                 <!--Pour tout utilisateur-->
                 <p>Toi tu réponds et tu cliques pour les ranger ! Moi je te soutiens moralement !</p>
               </div>
-              <img class="trieurtoolki" src="Image\Trieur_rpg.png" />
+              <img class="trieurtoolki" src="../assets/Image/Trieur_rpg.png" />
             </div>
             <div class="ajoutrpfofoperso ">
               <div class="ongledajout">
@@ -379,7 +380,7 @@
                 <!--Pour tout utilisateur-->
                 <p>Ici tu peux gérer tes personnages ! Ou te rappeler combien t'en as...</p>
               </div>
-              <img class="trieurtoolki" src="Image\Trieur_rpg.png" />
+              <img class="trieurtoolki" src="../assets/Image/Trieur_rpg.png" />
             </div>
             <!--Liste des persos par fofo-->
             <div class="trieurpersonnagezone">
@@ -497,13 +498,13 @@
                 <!--Pour tout utilisateur-->
                 <p>Rien ne vaut un petit Toolki pour veiller sur ses chez soi !</p>
               </div>
-              <img class="trieurtoolki" src="Image\Trieur_rpg.png" />
+              <img class="trieurtoolki" src="../assets/Image/Trieur_rpg.png" />
             </div>
             <div class="trieurpersonnagezone">
               <!--Liste des forums-->
               <div class="listeforum">
                 <div class="entetefofo">
-                  <a href="#"><img src="Image\Toolkit_rpg.png" /></a>
+                  <a href="#"><img src="../assets/Image/Toolkit_rpg.png" /></a>
                   <h3>Nom du forum</h3>
                 </div>
                 <div class="listefofo">
@@ -515,7 +516,7 @@
               </div>
               <div class="listeforum">
                 <div class="entetefofo">
-                  <a href="#"><img src="Image\Toolkit_rpg.png" /></a>
+                  <a href="#"><img src="../assets/Image/Toolkit_rpg.png" /></a>
                   <h3>Nom du forum</h3>
                 </div>
                 <div class="listefofo">
@@ -527,7 +528,7 @@
               </div>
               <div class="listeforum">
                 <div class="entetefofo">
-                  <a href="#"><img src="Image\Toolkit_rpg.png" /></a>
+                  <a href="#"><img src="../assets/Image/Toolkit_rpg.png" /></a>
                   <h3>Nom du forum</h3>
                 </div>
                 <div class="listefofo">
@@ -539,7 +540,7 @@
               </div>
               <div class="listeforum">
                 <div class="entetefofo">
-                  <a href="#"><img src="Image\Toolkit_rpg.png" /></a>
+                  <a href="#"><img src="../assets/Image/Toolkit_rpg.png" /></a>
                   <h3>Nom du forum</h3>
                 </div>
                 <div class="listefofo">
@@ -551,7 +552,7 @@
               </div>
               <div class="listeforum">
                 <div class="entetefofo">
-                  <a href="#"><img src="Image\Toolkit_rpg.png" /></a>
+                  <a href="#"><img src="../assets/Image/Toolkit_rpg.png" /></a>
                   <h3>Nom du forum</h3>
                 </div>
                 <div class="listefofo">
@@ -563,7 +564,7 @@
               </div>
               <div class="listeforum">
                 <div class="entetefofo">
-                  <a href="#"><img src="Image\Toolkit_rpg.png" /></a>
+                  <a href="#"><img src="../assets/Image/Toolkit_rpg.png" /></a>
                   <h3>Nom du forum</h3>
                 </div>
                 <div class="listefofo">
@@ -584,10 +585,10 @@
               <div>
                 <h2>Tu as plein de questions ? J'ai plein de réponses ! </h2>
 
-                <p>Et si je les ai pas, tu peux aller demander à mes créateurs !<br/>
-                  <center><button class="footer"> <a href="file:///C:/Users/ange_/Downloads/Untitled-1.html#">Go discord</a></button></center>
+                <p>Et si je les ai pas, tu peux aller demander à mes créateurs !</p>
+                  <div style="text-align: center;"><button class="footer"> <a href="file:///C:/Users/ange_/Downloads/Untitled-1.html#">Go discord</a></button></div>
               </div>
-              <img class="trieurtoolki" src="Image\Trieur_rpg.png" />
+              <img class="trieurtoolki" src="../assets/Image/Trieur_rpg.png" />
             </div>
             <!--Accordeon de questions-->
             <div class="accordion">

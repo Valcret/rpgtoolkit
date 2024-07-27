@@ -5,10 +5,11 @@
     <div class="bodyarrived">
       <!-- Zone DE GAUCHE -->
       <div class="accueilnav">
-        <a class="homemenu" href="Facelaim.html"><img
+        <a class="homemenu" href="/faceclaim"><img
             src="../assets/Image/Facelaime_rpg.png"></a>
-        <a class="homemenu" href="fiche_craft.html"><img src="../assets/Image/fich_craft_rpg.png"></a>
-        <a class="homemenu" href="trieur.html"><img src="../assets/Image/Trieur_rpg.png"></a>
+        <a class="homemenu" href="/fichecraft"><img
+          src="../assets/Image/fich_craft_rpg.png"></a>
+        <a class="homemenu" href="/trieur"><img src="../assets/Image/Trieur_rpg.png"></a>
 
       </div>
       <!-- Zone de droite -->

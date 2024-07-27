@@ -6,7 +6,7 @@
   <main class="fichecraft">
     <aside class="menufichecraft">
       <button class="close-btn">&times;</button>
-      <a href="accueil.html"><img src="Image\fich_craft_rpg.png"></a>
+      <a href="/"><img src="../assets/Image/fich_craft_rpg.png"></a>
       <div class="forumficheliste">
         <button class="fc"><a href="#">Forum 1</a></button>
         <button class="fc"><a href="#">Forum 1</a></button>
@@ -18,13 +18,15 @@
     <button class="open-btn">&#9776;</button>
     <section class="fichcraftmain">
       <!--Zone d'arrivée sur la page-->
-      <div class="ficheintro"><img class="trieurtoolki" src="Image\fich_craft_rpg.png" />
+      <div class="ficheintro"><img class="trieurtoolki" src="../assets/Image/fich_craft_rpg.png" />
         <div>
           <h1>C'est moi, Toolki ! </h1>
 
-          <p>Le forum sur lequel tu joues un forum partenaire?<br/> Parfait, tu peux choisirs son nom dans le menu pour trouver sa fiche. <br/>S'il n'y est pas, tu peux le proposer (si tu es l'admin du fofo bien entendu).</em>
+          <p>Le forum sur lequel tu joues un forum partenaire?<br/> Parfait, tu peux
+            choisir son nom dans le menu pour trouver sa fiche. <br/>S'il n'y est pas, tu peux le proposer (si tu es l'admin du fofo bien entendu).
           </p>
-          <center><button class="footer"> <a href="file:///C:/Users/ange_/Downloads/Untitled-1.html#">Go discord</a></button> <button class="footer"> <a href="contact.html">Go contact</a></button></center>
+          <center><button class="footer"> <a
+            href="file:///C:/Users/ange_/Downloads/Untitled-1.html#">Go discord</a></button> <button class="footer"> <a href="/contact.html">Go contact</a></button></center>
 
         </div>
       </div>
@@ -147,7 +149,6 @@
 
           <button class="buttonformtype" type="submit">Soumettre</button>
         </form>
-      </div>
       </div>
     </section>
   </main>
