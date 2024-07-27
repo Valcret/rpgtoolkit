@@ -136,6 +136,15 @@ COULEUR ET SURLIGNAGE DU TEXTE
 GENERAL
 ===================================================*/
 
+html,body{
+    min-height: 100vh
+}
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 body {
     display: flex;
     justify-content: space-evenly;
@@ -484,13 +493,13 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 .nav .nav-item.active::before {
     position: absolute;
     content: "";
-    width: 30px;
+    width: 20px;
     height: 30px;
     background: var(--color1);
     right: 5px;
     top: -30px;
-    border-bottom-right-radius: 50%;
-    box-shadow: 7px 3px 0px 0px var(--color2);
+    border-bottom-right-radius: 40%;
+    box-shadow: 5.8px 8px 0px 0px var(--color2);
 }
 
 a.nav-link.text-dark.py-2.rounded-,
@@ -501,13 +510,13 @@ a.nav-link.text-dark.py-2 {
 .nav .nav-item.active::after {
     position: absolute;
     content: "";
-    width: 30px;
+    width: 20px;
     height: 30px;
     background: transparent;
     right: 5px;
     bottom: -30px;
-    border-top-right-radius: 50%;
-    box-shadow: 7px -3px 0px 0px var(--color2);
+    border-top-right-radius: 40%;
+    box-shadow: 5.8px -8px 0px 0px var(--color2);
 }
 
 section
