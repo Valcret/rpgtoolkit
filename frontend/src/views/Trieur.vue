@@ -1,3 +1,13 @@
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const activeSection = ref('section-1')
+
+let connected = true
+
+const loggedIn = ref(connected)
+
+</script>
 <template>
   <div id="wrapper" class="d-flex">
     <!--Menu de gauche-->
@@ -712,18 +722,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { ref } from 'vue'
-
-const activeSection = ref('section-1')
-
-let connected = true
-
-const loggedIn = ref(connected)
-
-</script>
-
 <style scoped>
 .nav-item i.bi {
   font-size: 27px;
