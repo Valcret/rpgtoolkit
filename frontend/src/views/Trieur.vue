@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 const activeSection = ref('section-1')
-
+const activeList = ref('prioritaire')
 let connected = true
 
 const loggedIn = ref(connected)
@@ -131,23 +131,28 @@ const loggedIn = ref(connected)
               <div class="connectetrieur1"  v-show="loggedIn=== true">
                 <div class="gererrp">
                   Tu veux ajouter un RP/perso/fofo ?
-                  <a href="#"><i class="bi bi-bookmark-plus"></i></a>
+                  <a href="#" @click="activeSection = 'section-1'">
+                    <i class="bi bi-bookmark-plus"></i></a>
                 </div>
                 <div class="gererrp">
                   Tu veux gérer tes rps ?
-                  <a href="#"><i class="bi bi-list-check"></i></a>
+                  <a href="#" @click="activeSection = 'section-2'">
+                    <i class="bi bi-list-check"></i></a>
                 </div>
                 <div class="gererrp">
                   Tu veux gérer tes persos ?
-                  <a href="#"><i class="bi bi-person-lines-fill"></i></a>
+                  <a href="#" @click="activeSection = 'section-3'">
+                    <i class="bi bi-person-lines-fill"></i></a>
                 </div>
                 <div class="gererrp">
                   Tu veux gérer tes forums ?
-                  <a href="#"><i class="bi bi-pc-display-horizontal"></i></a>
+                  <a href="#" @click="activeSection = 'section-4'">
+                    <i class="bi bi-pc-display-horizontal"></i></a>
                 </div>
                 <div class="gererrp">
                   T'es en galère ?
-                  <a href="#"><i class="bi bi-question-circle"></i></a>
+                  <a href="#" @click="activeSection = 'section-5'">
+                    <i class="bi bi-question-circle"></i></a>
                 </div>
 
               </div>
@@ -321,10 +326,16 @@ const loggedIn = ref(connected)
               <div class="ongledajout">
 
                 <div class="container-onglets">
-                  <div class="onglets active">Prioritaires</div>
-                  <div class="onglets">En cours</div>
-                  <div class="onglets">En attente</div>
-                  <div class="onglets">Archivés</div>
+                  <div :class="{ active: activeList === 'prioritaire' }"
+                       @click="activeList='prioritaire'"
+                       class="onglets">Prioritaires</div>
+                  <div :class="{ active: activeList === 'aFaire' }" class="onglets" @click="activeList='aFaire'">En
+                    cours</div>
+                  <div
+                    :class="{ active: activeList === 'enAttente' }" class="onglets" @click="activeList='enAttente'">En
+                    attente</div>
+                  <div :class="{ active: activeList === 'archives' }" class="onglets" @click="activeList='archives'">
+                    Archivés</div>
                 </div>
                 <div class="contenu active-contenu">
                   <!--Ceci n'est qu'un visuel de la finalité des listes, je ne savais pas comment le coder XD-->
