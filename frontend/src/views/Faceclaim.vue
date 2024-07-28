@@ -121,7 +121,7 @@ export default {
     },
     toggleMenu() {
       this.sidebar = !this.sidebar
-}
+    }
   },
   mounted() {
     this.getImages(),

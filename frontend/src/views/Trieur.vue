@@ -1,17 +1,54 @@
-<script lang="ts" setup>
-import { ref } from 'vue'
+<script>
+  export default {
+    data: function() {
+      return {
+        activeSection: 'section-1',
+        activeList: 'prioritaire',
+        activeForm: 'Rp',
+        connected: true,
+        sidebar : true,
+      }
+    },
+    computed: {
+      loggedIn() {
+        return this.connected;
+      }
+    },
+    methods: {
+      setActiveList(listName) {
+        this.activeList = listName;
+        this.getRPList(listName);
+      },
+      setActiveForm(form){
+        this.activeForm=form;
+      },
+      getRPList(listName) {
+        // Votre logique pour récupérer la liste RP ici
+        console.log(`Fetching list: ${listName}`);
+      },
+      setTriggerBootstrap() {
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        tooltipTriggerList.forEach(tooltipTriggerEl => {
+          new bootstrap.Tooltip(tooltipTriggerEl);
+        })
+      },
+      toggleMenu() {
+        this.sidebar = !this.sidebar
+      }
+    },
+    mounted() {
+      this.setTriggerBootstrap()
+    }
 
-const activeSection = ref('section-1')
-const activeList = ref('prioritaire')
-let connected = true
-
-const loggedIn = ref(connected)
-
+  };
 </script>
 <template>
   <div id="wrapper" class="d-flex">
-    <!--Menu de gauche-->
-    <div id="sidebar-wrapper">
+    <button v-show="!this.sidebar" class="open-btn" @click="this.toggleMenu()"><i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+      <!--Menu de gauche-->
+    <div id="sidebar-wrapper" v-show="this.sidebar">
       <!--Icone accueil-->
       <a class="d-block text-center text-decoration-none logo mb-4" data-bs-placement="right"
          data-bs-toggle="tooltip" href="/" title="Retour à l'accueil">
@@ -91,9 +128,10 @@ const loggedIn = ref(connected)
     <!--page de gauche avec sections liés aux onglets-->
     <div id="page-content-wrapper">
       <!--bouton x fixe pour fermer la navigations-->
-      <nav class="navbar position-fixed">
+      <nav class="navbar position-fixed" v-show="this.sidebar" @click="this.toggleSidebar()">
         <div class="container-fluid">
-          <button id="sidebarToggle" class="btn"><i class="bi bi-x-lg"></i></button>
+          <button class="close-btn btn" @click="this.toggleMenu()">
+            <i class="fa-solid fa-chevron-left"></i></button>
         </div>
       </nav>
       <!--onglet/sections-->
@@ -183,11 +221,21 @@ const loggedIn = ref(connected)
                 <div class="ongledajout">
 
                   <div class="container-onglets">
-                    <div class="onglets active">RPs</div>
-                    <div class="onglets">Forum</div>
-                    <div class="onglets">Perso</div>
+                    <div :class="{ active: this.activeForm === 'Rp'}"
+                         class="onglets"
+                         @click="this.setActiveForm('Rp')">
+                      RPs
+                    </div>
+                    <div :class="{ active: this.activeForm === 'Forum'}"
+                         class="onglets"
+                         @click="this.setActiveForm('Forum')">
+                      Forum
+                    </div>
+                    <div :class="{ active: this.activeForm === 'Perso'}"
+                         class="onglets"
+                         @click="this.setActiveForm('Perso')">Perso</div>
                   </div>
-                  <div class="contenu active-contenu">
+                  <div class="contenu" v-show="this.activeForm === 'Rp'">
                     <h3>Remplis le formulaire ci dessous pour ajouter ton rp</h3>
 
                     <form action="#" class="formulairetype" method="post">
@@ -232,7 +280,7 @@ const loggedIn = ref(connected)
                     </form>
 
                   </div>
-                  <div class="contenu">
+                  <div class="contenu" v-show="this.activeForm === 'Forum'">
                     <h3>Remplis le formulaire ci dessous pour ajouter ton forum</h3>
 
                     <form action="#" class="formulairetype" method="post">
@@ -259,7 +307,7 @@ const loggedIn = ref(connected)
                       <button class="buttonformtype" type="submit">Envoyer</button>
                     </form>
                   </div>
-                  <div class="contenu">
+                  <div class="contenu" v-show="this.activeForm === 'Perso'">
                     <h3>Remplis le formulaire ci dessous pour ajouter ton personnage</h3>
 
                     <form action="#" class="formulairetype" method="post">
@@ -327,15 +375,24 @@ const loggedIn = ref(connected)
 
                 <div class="container-onglets">
                   <div :class="{ active: activeList === 'prioritaire' }"
-                       @click="activeList='prioritaire'"
-                       class="onglets">Prioritaires</div>
-                  <div :class="{ active: activeList === 'aFaire' }" class="onglets" @click="activeList='aFaire'">En
-                    cours</div>
-                  <div
-                    :class="{ active: activeList === 'enAttente' }" class="onglets" @click="activeList='enAttente'">En
-                    attente</div>
-                  <div :class="{ active: activeList === 'archives' }" class="onglets" @click="activeList='archives'">
-                    Archivés</div>
+                       @click="this.setActiveList('prioritaire')"
+                       class="onglets">
+                    Prioritaires
+                  </div>
+                  <div :class="{ active: activeList === 'aFaire' }"
+                       @click="this.setActiveList('aFaire')"
+                       class="onglets">
+                    En cours</div>
+                  <div :class="{ active: activeList === 'enAttente' }"
+                       @click="this.setActiveList('enAttente')"
+                       class="onglets">
+                    En attente
+                  </div>
+                  <div :class="{ active: activeList === 'archives' }"
+                       @click="this.setActiveList('archives')"
+                       class="onglets">
+                    Archivés
+                  </div>
                 </div>
                 <div class="contenu active-contenu">
                   <!--Ceci n'est qu'un visuel de la finalité des listes, je ne savais pas comment le coder XD-->
@@ -734,7 +791,34 @@ const loggedIn = ref(connected)
   </div>
 </template>
 <style scoped>
-.nav-item i.bi {
-  font-size: 27px;
-}
+  .nav-item i.bi {
+    font-size: 27px;
+  }
+  .open-btn {
+    display: block;
+  }
+  .open-btn,
+  .close-btn {
+    font-size: 24px;
+    top: 5px;
+    padding:0
+  }
+  .close-btn {
+    color: var(--color6);
+    left:75px;
+  }
+  .navbar {
+    margin-left: 10px;
+    padding:0 !important;
+  }
+  .navbar .container-fluid {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .contenu {
+    display: block;
+  }
+  .gererrp:first-child {
+    font-size: 0.95rem;
+  }
 </style>
