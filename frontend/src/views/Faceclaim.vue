@@ -7,7 +7,8 @@ export default {
       modalImageUrl: '',
       hiddenNSFW: true,
       imageList : [],
-      loggedIn : false
+      loggedIn : false,
+      sidebar : true,
     };
   },
   methods: {
@@ -71,10 +72,8 @@ export default {
           this.filters.splice(index, 1);
         }
       }
-      console.log(this.filters); // Debugging
     },
     shouldShow(criteria) {
-      console.log(this.hiddenNSFW)
       const nsfwCriteria = 'style-nsfw';
       if(criteria === "")
       {
@@ -119,7 +118,10 @@ export default {
     },
     getImageSrc(imageUrl) {
       return `/src/assets/Image/${imageUrl}`;
-    }
+    },
+    toggleMenu() {
+      this.sidebar = !this.sidebar
+}
   },
   mounted() {
     this.getImages(),
@@ -132,9 +134,9 @@ export default {
 <template>
   <main class="fichecraft">
     <!--Zone de gauche-->
-    <aside class="menufichecraft">
+    <aside v-show="this.sidebar" class="menufichecraft">
       <!--bouton ouverture fermeture-->
-      <button class="close-btn">&times;</button>
+      <button class="close-btn" @click="this.toggleMenu()">&times;</button>
       <a href="/"><img src="../assets/Image/Facelaime_rpg.png"></a>
       <!--Zone de connection admin rapide-->
       <div class="adminconnect">
@@ -245,7 +247,8 @@ export default {
       </div>
 
     </aside>
-    <button class="open-btn">&#9776;</button>
+    <button v-show="!this.sidebar" class="open-btn" @click="this.toggleMenu()">&#9776;
+    </button>
     <section class="facelaim">
       <!--Zone d'arrivée sur la page-->
       <div class="facelaimintro"><img class="trieurtoolki" src="../assets/Image/Facelaime_rpg.png" />
@@ -355,5 +358,11 @@ li>* {
   cursor: pointer;
   color: var(--color6);
   opacity: 100%;
+}
+.open-btn {
+  display: block;
+}
+aside.menufichecraft {
+  transform: none;
 }
 </style>
