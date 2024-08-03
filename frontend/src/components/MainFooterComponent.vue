@@ -1,5 +1,9 @@
-<script setup lang="ts">
-// Votre code TypeScript ou JavaScript ici
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'MainFooterComponent'
+})
 </script>
 
 <template>
@@ -23,4 +27,5 @@
 </template>
 
 <style scoped>
+
 </style>

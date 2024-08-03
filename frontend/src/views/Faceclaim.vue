@@ -262,7 +262,7 @@ export default {
         </div>
       </div>
       <!--Les avatars-->
-      <div class="avatarfacelaim">
+      <div class="avatarfacelaim">²
         <a v-for="image in this.imageList" :key="image.url" class="image test"
            v-show="shouldShow(image.criteria.join(' '))"
            @click="openModal($event)"
