@@ -38,8 +38,7 @@ export default {
     }
   },
   mounted() {
-    console.log("loggedIn:", this.loggedIn);
-    console.log("activeSection:", this.activeSection);
+
   }
 };
 </script>
