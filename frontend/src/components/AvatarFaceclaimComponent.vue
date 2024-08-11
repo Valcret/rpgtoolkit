@@ -1,20 +1,25 @@
 <template>
   <div class="avatarfacelaim">
-    <a v-for="image in imageList" :key="image.url" class="image test"
-       v-show="shouldShow(image.criteria.join(' '))"
-       @click="openModal(image.url)"
-       href="javascript:void(0)">
-      <img :src="getImageSrc(image.url)" :alt="`Avatar ${image.size.join('x')}`">
-      <div class="info">
-        <p>{{ image.name }}</p>
-        <p>Taille: {{ image.size.join('x') }}</p>
-      </div>
-    </a>
+    <AvatarComponent
+      v-for="image in imageList"
+      :key="image.url"
+      :url="image.url"
+      :name="image.name"
+      :size="image.size"
+      :getImageSrc="getImageSrc"
+      v-show="shouldShow(image.criteria.join(' '))"
+      @avatarClick="openModalLink"
+    />
   </div>
 </template>
 
 <script>
+import AvatarComponent from './AvatarComponent.vue';
+
 export default {
+  components: {
+    AvatarComponent
+  },
   props: {
     imageList: {
       type: Array,
@@ -34,17 +39,14 @@ export default {
     },
   },
   methods: {
-    isConnected() {
-      return this.loggedIn;
-    },
-    openModal(url){
-      this.$emit('openModalLink',url);
+    openModalLink(url) {
+      console.log(url);
+      this.$emit('openModalLink', url); // Émet l'URL de l'image cliquée
     },
     getImages() {
-      //ajouter ajax//
       let image1 = {
-        url:"avatar 200400.jpeg",
-        criteria:[
+        url: "avatar200400.jpeg",
+        criteria: [
           'size-200*400',
           'hair-tainted',
           'detail-tattoo',
@@ -52,49 +54,43 @@ export default {
           'style-nsfw',
           'style-contemp'
         ],
-        name:"Rolyatistaylor",
-        size:[
-          "200",
-          "400"
-        ]
-      }
+        name: "Rolyatistaylor",
+        size: ["200", "400"]
+      };
       let image2 = {
-        url:"avatar200320.jpg",
-        criteria:[
+        url: "avatar200320.jpg",
+        criteria: [
           'size-200*320',
           'hair-redhead',
           'style-contemp'
         ],
-        name:"Irina Meier",
-        size:[
-          "200",
-          "320"
-        ]
-      }
+        name: "Irina Meier",
+        size: ["200", "320"]
+      };
       let image3 = {
-        url:"avatar400250.jpg",
-        criteria:[
+        url: "avatar400250.jpg",
+        criteria: [
           'size-200*400',
           'hair-black',
           'style-historic'
         ],
-        name:"Luria XII",
-        size:[
-          "400",
-          "250"
-        ]
-      }
-      this.imageList.push(image1)
-      this.imageList.push(image2)
-      this.imageList.push(image3)
+        name: "Luria XII",
+        size: ["400", "250"]
+      };
+
+      this.imageList.push(image1);
+      this.imageList.push(image2);
+      this.imageList.push(image3);
     },
   },
   mounted() {
-    this.getImages()
+    this.getImages();
   }
 };
 </script>
 
 <style scoped>
-/* Pas de styles ajoutés ici pour ne pas interférer avec les styles existants */
+.avatarfacelaim {
+  justify-content: flex-start;
+}
 </style>
