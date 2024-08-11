@@ -6,8 +6,10 @@ import rpListComponent from '@/components/TrieurComponents/RpListTrieurComponent
 import CharacterListComponent from '@/components/TrieurComponents/CharacterListTrieurComponent.vue'
 import ForumListComponent from '@/components/TrieurComponents/ForumListTrieurComponent.vue'
 import FAQComponent from '@/components/TrieurComponents/FAQTrieurComponent.vue'
+import Sidebar from '@/components/FaceclaimComponents/SidebarFaceclaimComponent.vue'
 export default {
   components: {
+    Sidebar,
     HomeComponent,
     SidebarComponent,
     AjoutComponent,
@@ -21,13 +23,17 @@ export default {
       activeSection: 1,
       activeList: 'prioritaire',
       connected: true,
-      loggedIn: true
+      loggedIn: true,
+      sidebar : true,
     }
   },
   methods: {
     updateActiveSection(section) {
       this.activeSection = Number(section);
-    }
+    },
+    toggleMenu() {
+      this.sidebar = !this.sidebar;
+    },
   },
   mounted() {
     this.updateActiveSection(1)
@@ -44,14 +50,18 @@ export default {
     <!--Menu de gauche-->
     <SidebarComponent
       :loggedIn="loggedIn"
+      :sidebar="sidebar"
       :activeSection="activeSection"
       @update:activeSection="updateActiveSection"
-    />    <!--page de gauche avec sections liés aux onglets-->
+    />
+    <button v-show="!this.sidebar" class="open-btn" @click="this.toggleMenu()">&#9776;</button>
+    <!--page de gauche avec sections liés aux onglets-->
     <div id="page-content-wrapper">
       <!--bouton x fixe pour fermer la navigations-->
       <nav class="navbar position-fixed">
         <div class="container-fluid">
-          <button id="sidebarToggle" class="btn"><i class="bi bi-x-lg"></i></button>
+          <button @click="toggleMenu" id="sidebarToggle"
+                  class="btn"><i class="bi bi-x-lg"></i></button>
         </div>
       </nav>
       <!--onglet/sections-->

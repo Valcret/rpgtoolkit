@@ -1,5 +1,5 @@
 <template>
-  <div id="sidebar-wrapper">
+  <div  v-show="this.sidebar"  id="sidebar-wrapper">
     <!-- Icone accueil -->
     <a class="d-block text-center text-decoration-none logo mb-4" data-bs-placement="right"
        data-bs-toggle="tooltip" href="/" title="Retour à l'accueil">
@@ -84,13 +84,20 @@ export default {
     activeSection: {
       type: Number,
       required: true
-    }
+    },
+    sidebar: {
+      type: Boolean,
+      required: true
+    },
   },
   methods: {
     setActiveSection(section) {
       // Convertir en nombre si nécessaire avant d'émettre l'événement
       this.$emit('update:activeSection', Number(section));
-    }
+    },
+    toggleMenu() {
+      this.$emit('toggle-menu');
+    },
   }
 };
 </script>
