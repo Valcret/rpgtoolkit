@@ -2,7 +2,7 @@
   <aside v-show="this.sidebar" class="menufichecraft">
     <!--bouton ouverture fermeture-->
     <button class="close-btn" @click="this.toggleMenu()">&times;</button>
-    <a href="/"><img src="../assets/Image/Facelaime_rpg.png"></a>
+    <a href="/"><img src="../../assets/Image/Facelaime_rpg.png"></a>
     <!--Zone de connection admin rapide-->
     <div class="adminconnect">
       <a v-show="this.isConnected()===false" href="/connect" class="navboutontrieur"

@@ -1,7 +1,7 @@
 <script>
-import Sidebar from '@/components/SidebarComponent.vue';
-import AvatarFaceclaim from '@/components/AvatarFaceclaimComponent.vue';
-import FaceclaimModal from '@/components/FaceclaimModalComponent.vue';
+import Sidebar from '@/components/FaceclaimComponents/SidebarFaceclaimComponent.vue';
+import AvatarFaceclaim from '@/components/FaceclaimComponents/AvatarFaceclaimComponent.vue';
+import FaceclaimModal from '@/components/FaceclaimComponents/FaceclaimModalComponent.vue';
 
 export default {
   components: {
