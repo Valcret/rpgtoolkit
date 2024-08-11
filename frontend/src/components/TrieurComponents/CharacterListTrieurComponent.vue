@@ -19,7 +19,7 @@ export default defineComponent({
           <p>Ici tu peux gérer tes personnages ! Ou te rappeler combien t'en
             as...</p>
         </div>
-        <img class="trieurtoolki" src="../assets/Image/Trieur_rpg.png" />
+        <img class="trieurtoolki" src="../../assets/Image/Trieur_rpg.png" />
       </div>
       <!--Liste des persos par fofo-->
       <div class="trieurpersonnagezone">

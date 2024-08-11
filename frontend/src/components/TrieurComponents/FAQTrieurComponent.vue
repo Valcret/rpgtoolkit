@@ -1,8 +1,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import FAQAccordeonComponent
+  from '@/components/TrieurComponents/subComponents/FAQAccordeonComponent.vue'
 
 export default defineComponent({
-  name: 'FAQTrieurComponent'
+  components: {
+    FAQAccordeonComponent
+  }
 })
 </script>
 
@@ -21,49 +25,23 @@ export default defineComponent({
               discord</a></button>
           </div>
         </div>
-        <img class="trieurtoolki" src="../assets/Image/Trieur_rpg.png" />
+        <img class="trieurtoolki" src="../../assets/Image/Trieur_rpg.png" />
       </div>
       <!--Accordeon de questions-->
       <div class="accordion">
-        <div class="accordion-section">
-          <div class="accordion-header">J'ai fais une bétise, comment je répare ?
-          </div>
-          <div class="accordion-content">
-            <p>...</p>
-          </div>
-        </div>
-        <div class="accordion-section">
-          <div class="accordion-header">Section 2</div>
-          <div class="accordion-content">
-            <p>Contenu de la section 2</p>
-          </div>
-        </div>
-        <div class="accordion-section">
-          <div class="accordion-header">Section 3</div>
-          <div class="accordion-content">
-            <p>Contenu de la section 3</p>
-          </div>
-        </div>
-        <div class="accordion-section">
-          <div class="accordion-header">Section 4</div>
-          <div class="accordion-content">
-            <p>Contenu de la section 4</p>
-          </div>
-        </div>
-        <div class="accordion-section">
-          <div class="accordion-header">Section 5</div>
-          <div class="accordion-content">
-            <p>Contenu de la section 5</p>
-          </div>
-        </div>
-        <div class="accordion-section">
-          <div class="accordion-header">Section 6</div>
-          <div class="accordion-content">
-            <p>Contenu de la section 6</p>
-          </div>
-        </div>
+        <FAQAccordeonComponent
+          headerText="Comment créer un nouveau compte ?"
+          contentText="Pour créer un nouveau compte, suivez ces étapes..."
+        />
+        <FAQAccordeonComponent
+          headerText="Comment créer un nouveau compte ?"
+          contentText="Pour créer un nouveau compte, suivez ces étapes..."
+        />
+        <FAQAccordeonComponent
+          headerText="Comment créer un nouveau compte ?"
+          contentText="Pour créer un nouveau compte, suivez ces étapes..."
+        />
       </div>
-
     </div>
   </section>
 </template>

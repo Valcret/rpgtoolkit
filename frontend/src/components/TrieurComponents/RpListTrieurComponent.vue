@@ -7,7 +7,7 @@
           <!--Pour tout utilisateur-->
           <p>Toi tu réponds et tu cliques pour les ranger ! Moi je te soutiens moralement !</p>
         </div>
-        <img class="trieurtoolki" src="../assets/Image/Trieur_rpg.png" />
+        <img class="trieurtoolki" src="../../assets/Image/Trieur_rpg.png" />
       </div>
       <div class="ajoutrpfofoperso">
         <div class="ongledajout">

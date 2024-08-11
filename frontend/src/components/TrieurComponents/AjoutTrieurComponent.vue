@@ -24,7 +24,7 @@ export default {
               <br />Oups, tu l'as mis en double ? Va dans la catégorie approprié
               pour le supprimer d'un coup de clic </p>
           </div>
-          <img class="trieurtoolki" src="../assets/Image/Trieur_rpg.png" />
+          <img class="trieurtoolki" src="../../assets/Image/Trieur_rpg.png" />
         </div>
         <div class="ajoutrpfofoperso ">
           <!--onglets-->

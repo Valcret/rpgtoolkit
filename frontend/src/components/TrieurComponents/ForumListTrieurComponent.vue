@@ -16,7 +16,7 @@ export default defineComponent({
           <!--Pour tout utilisateur-->
           <p>Rien ne vaut un petit Toolki pour veiller sur ses chez soi !</p>
         </div>
-        <img class="trieurtoolki" src="../assets/Image/Trieur_rpg.png" />
+        <img class="trieurtoolki" src="../../assets/Image/Trieur_rpg.png" />
       </div>
       <div class="trieurpersonnagezone">
         <!--Liste des forums-->

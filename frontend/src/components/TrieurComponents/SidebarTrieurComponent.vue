@@ -103,5 +103,8 @@ export default {
 </script>
 
 <style scoped>
+i {
+  font-size: 27px;
+}
 /* Ajoutez ici les styles spécifiques à la sidebar */
 </style>

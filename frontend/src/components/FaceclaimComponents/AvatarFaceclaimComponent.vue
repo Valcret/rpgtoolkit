@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import AvatarComponent from './AvatarComponent.vue';
+import AvatarComponent from './subComponents/AvatarComponent.vue';
 
 export default {
   components: {
