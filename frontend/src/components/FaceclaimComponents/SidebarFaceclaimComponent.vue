@@ -1,7 +1,7 @@
 <template>
   <aside v-show="this.sidebar" class="menufichecraft">
     <!--bouton ouverture fermeture-->
-    <button class="close-btn" @click="this.toggleMenu()">&times;</button>
+    <button class="close-btn" @click="this.toggleMenu()"><i class="fa-solid fa-chevron-left"></i></button>
     <a href="/"><img src="../../assets/Image/Facelaime_rpg.png"></a>
     <!--Zone de connection admin rapide-->
     <div class="adminconnect">

@@ -1,19 +1,18 @@
 <script>
 import SidebarComponent from '@/components/TrieurComponents/SidebarTrieurComponent.vue';
-import HomeComponent from '@/components/TrieurComponents/HomeTrieurComponent.vue'
-import AjoutComponent from '@/components/TrieurComponents/AjoutTrieurComponent.vue'
-import rpListComponent from '@/components/TrieurComponents/RpListTrieurComponent.vue'
-import CharacterListComponent from '@/components/TrieurComponents/CharacterListTrieurComponent.vue'
-import ForumListComponent from '@/components/TrieurComponents/ForumListTrieurComponent.vue'
-import FAQComponent from '@/components/TrieurComponents/FAQTrieurComponent.vue'
-import Sidebar from '@/components/FaceclaimComponents/SidebarFaceclaimComponent.vue'
+import HomeComponent from '@/components/TrieurComponents/HomeTrieurComponent.vue';
+import AjoutComponent from '@/components/TrieurComponents/AjoutTrieurComponent.vue';
+import RpListComponent from '@/components/TrieurComponents/RpListTrieurComponent.vue';
+import CharacterListComponent from '@/components/TrieurComponents/CharacterListTrieurComponent.vue';
+import ForumListComponent from '@/components/TrieurComponents/ForumListTrieurComponent.vue';
+import FAQComponent from '@/components/TrieurComponents/FAQTrieurComponent.vue';
+
 export default {
   components: {
-    Sidebar,
-    HomeComponent,
     SidebarComponent,
+    HomeComponent,
     AjoutComponent,
-    rpListComponent,
+    RpListComponent,
     CharacterListComponent,
     ForumListComponent,
     FAQComponent
@@ -21,11 +20,9 @@ export default {
   data() {
     return {
       activeSection: 1,
-      activeList: 'prioritaire',
-      connected: true,
-      loggedIn: true,
-      sidebar : true,
-    }
+      sidebar: true, // Renommé de 'connected' en 'sidebar' pour plus de clarté
+      loggedIn: true
+    };
   },
   methods: {
     updateActiveSection(section) {
@@ -33,18 +30,20 @@ export default {
     },
     toggleMenu() {
       this.sidebar = !this.sidebar;
-    },
+      document.getElementById('button-sidebar').innerHTML = this.sidebar
+        ? `<i class="fa-solid fa-chevron-left"></i>`
+        : `<i class="fa-solid fa-chevron-right"></i>`;
+      document.querySelector('.navbar.position-fixed').style.left = this.sidebar ? '' :
+        '0';
+    }
   },
   mounted() {
-    this.updateActiveSection(1)
-    this.connected = true
-    this.loggedIn = true
-    console.log("loggedIn : "+this.loggedIn)
-    console.log("connected : "+this.connected)
-    console.log("active : "+this.activeSection)
+    console.log("loggedIn:", this.loggedIn);
+    console.log("activeSection:", this.activeSection);
   }
-}
+};
 </script>
+
 <template>
   <div id="wrapper" class="d-flex">
     <!--Menu de gauche-->
@@ -54,14 +53,15 @@ export default {
       :activeSection="activeSection"
       @update:activeSection="updateActiveSection"
     />
-    <button v-show="!this.sidebar" class="open-btn" @click="this.toggleMenu()">&#9776;</button>
+    <button v-show="!this.sidebar" class="open-btn"
+            @click="this.toggleMenu()"><i class="fa-solid fa-chevron-left"></i></button>
     <!--page de gauche avec sections liés aux onglets-->
     <div id="page-content-wrapper">
       <!--bouton x fixe pour fermer la navigations-->
       <nav class="navbar position-fixed">
         <div class="container-fluid">
-          <button @click="toggleMenu" id="sidebarToggle"
-                  class="btn"><i class="bi bi-x-lg"></i></button>
+          <button @click="toggleMenu()" id="button-sidebar"
+                  class="btn"><i class="fa-solid fa-chevron-left"></i></button>
         </div>
       </nav>
       <!--onglet/sections-->

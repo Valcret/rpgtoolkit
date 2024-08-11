@@ -36,6 +36,11 @@ export default {
     },
     toggleMenu() {
       this.sidebar = !this.sidebar;
+      document.getElementById('button-sidebar').innerHTML = this.sidebar
+        ? `<i class="fa-solid fa-chevron-left"></i>`
+        : `<i class="fa-solid fa-chevron-right"></i>`;
+      document.querySelector('.navbar.position-fixed').style.left = this.sidebar ? '' :
+        '0';
     },
     shouldShow(criteria) {
       const nsfwCriteria = 'style-nsfw';
@@ -70,13 +75,18 @@ export default {
       return `/src/assets/Image/${imageUrl}`;
     },
   },
-  mounted() {
-    () => { this.hiddenNSFW = true };
+  mounted: function() {
+    () => {
+      this.hiddenNSFW = true
+    }
   }
 };
 </script>
 
 <template>
+  <button style="display:block !important"v-show="!this.sidebar" class="open-btn"
+          @click="this.toggleMenu()"><i
+    class="fa-solid fa-chevron-right"></i></button>
   <main class="fichecraft">
     <!--Zone de gauche-->
     <Sidebar
@@ -88,7 +98,7 @@ export default {
       @hide-nsfw="hideNSFW"
     />
 
-    <button v-show="!this.sidebar" class="open-btn" @click="this.toggleMenu()">&#9776;</button>
+
 
     <section class="facelaim">
       <!--Zone d'arrivée sur la page-->
@@ -121,5 +131,10 @@ export default {
 </template>
 
 <style scoped>
+.open-btn {
+  position: fixed;
+  top:0;
+  left:0;
+}
 /* Ajoutez ici les styles spécifiques à la page si nécessaire */
 </style>
