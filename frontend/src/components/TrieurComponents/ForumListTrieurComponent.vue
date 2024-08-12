@@ -1,8 +1,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import ForumComponent
+  from '@/components/TrieurComponents/subComponents/ForumComponent.vue'
 
 export default defineComponent({
-  name: 'ForumListTrieurComponent'
+  name: 'ForumListTrieurComponent',
+  components: { ForumComponent }
 })
 </script>
 
@@ -20,80 +23,13 @@ export default defineComponent({
       </div>
       <div class="trieurpersonnagezone">
         <!--Liste des forums-->
-        <div class="listeforum">
-          <div class="entetefofo">
-            <a href="#"><img src="../assets/Image/Toolkit_rpg.png" /></a>
-            <h3>Nom du forum</h3>
-          </div>
-          <div class="listefofo">
-            <div class="iconmodofofo">
-              <a href="#"><i class="bi bi-card-list" title="Liste des rps"></i></a>
-              <a href="#"><i class="bi bi-person-bounding-box" title="Archiver"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="listeforum">
-          <div class="entetefofo">
-            <a href="#"><img src="../assets/Image/Toolkit_rpg.png" /></a>
-            <h3>Nom du forum</h3>
-          </div>
-          <div class="listefofo">
-            <div class="iconmodofofo">
-              <a href="#"><i class="bi bi-card-list" title="Liste des rps"></i></a>
-              <a href="#"><i class="bi bi-person-bounding-box" title="Archiver"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="listeforum">
-          <div class="entetefofo">
-            <a href="#"><img src="../assets/Image/Toolkit_rpg.png" /></a>
-            <h3>Nom du forum</h3>
-          </div>
-          <div class="listefofo">
-            <div class="iconmodofofo">
-              <a href="#"><i class="bi bi-card-list" title="Liste des rps"></i></a>
-              <a href="#"><i class="bi bi-person-bounding-box" title="Archiver"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="listeforum">
-          <div class="entetefofo">
-            <a href="#"><img src="../assets/Image/Toolkit_rpg.png" /></a>
-            <h3>Nom du forum</h3>
-          </div>
-          <div class="listefofo">
-            <div class="iconmodofofo">
-              <a href="#"><i class="bi bi-card-list" title="Liste des rps"></i></a>
-              <a href="#"><i class="bi bi-person-bounding-box" title="Archiver"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="listeforum">
-          <div class="entetefofo">
-            <a href="#"><img src="../assets/Image/Toolkit_rpg.png" /></a>
-            <h3>Nom du forum</h3>
-          </div>
-          <div class="listefofo">
-            <div class="iconmodofofo">
-              <a href="#"><i class="bi bi-card-list" title="Liste des rps"></i></a>
-              <a href="#"><i class="bi bi-person-bounding-box" title="Archiver"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="listeforum">
-          <div class="entetefofo">
-            <a href="#"><img src="../assets/Image/Toolkit_rpg.png" /></a>
-            <h3>Nom du forum</h3>
-          </div>
-          <div class="listefofo">
-            <div class="iconmodofofo">
-              <a href="#"><i class="bi bi-card-list" title="Liste des rps"></i></a>
-              <a href="#"><i class="bi bi-person-bounding-box" title="Archiver"></i></a>
-            </div>
-          </div>
-        </div>
+        <ForumComponent/>
+        <ForumComponent/>
+        <ForumComponent/>
+        <ForumComponent/>
+        <ForumComponent/>
+        <ForumComponent/>
       </div>
-
     </div>
   </section>
 </template>
