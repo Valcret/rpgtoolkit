@@ -41,7 +41,7 @@
               Archivés
             </div>
           </div>
-          <div v-if="activeList === 'prioritaire'" class="contenu active-contenu">
+          <div v-show="activeList === 'prioritaire'" class="contenu active-contenu">
             <div class="exempleliste">
               <div class="article1">
                 <div class="article1haut">
@@ -91,15 +91,15 @@
               </div>
             </div>
           </div>
-          <div v-else-if="activeList === 'aFaire'" class="contenu">
+          <div v-show="activeList === 'aFaire'" class="contenu">
             <h3>Remplis le formulaire ci-dessous pour ajouter ton forum</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur perspiciatis alias quod, dolores eum illum doloremque assumenda odio architecto, dolorum vitae nobis, quo deleniti ipsum.</p>
           </div>
-          <div v-else-if="activeList === 'enAttente'" class="contenu">
+          <div v-show="activeList === 'enAttente'" class="contenu">
             <h3>Remplis le formulaire ci-dessous pour ajouter ton personnage</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur perspiciatis alias quod, dolores eum illum doloremque assumenda odio architecto, dolorum vitae nobis, quo deleniti ipsum.</p>
           </div>
-          <div v-else-if="activeList === 'archives'" class="contenu">
+          <div v-show="activeList === 'archives'" class="contenu">
             <h3>Remplis le formulaire ci-dessous pour ajouter ton personnage</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur perspiciatis alias quod, dolores eum illum doloremque assumenda odio architecto, dolorum vitae nobis, quo deleniti ipsum.</p>
           </div>
