@@ -1,12 +1,7 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-import ForumComponent
-  from '@/components/TrieurComponents/subComponents/ForumComponent.vue'
+<script setup>
+import ForumComponent from '@/components/TrieurComponents/subComponents/ForumComponent.vue';
 
-export default defineComponent({
-  name: 'ForumListTrieurComponent',
-  components: { ForumComponent }
-})
+defineOptions({ name: 'ForumListTrieurComponent' });
 </script>
 
 <template>

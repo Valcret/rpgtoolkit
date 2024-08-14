@@ -1,86 +1,81 @@
-<script>
+<script setup>
+import { ref, reactive, onMounted } from 'vue';
 import Sidebar from '@/components/FaceclaimComponents/SidebarFaceclaimComponent.vue';
 import AvatarFaceclaim from '@/components/FaceclaimComponents/AvatarFaceclaimComponent.vue';
 import FaceclaimModal from '@/components/FaceclaimComponents/FaceclaimModalComponent.vue';
 
-export default {
-  components: {
-    Sidebar,
-    AvatarFaceclaim,
-    FaceclaimModal
-  },
-  data() {
-    return {
-      filters: [],
-      isModalOpen: false,
-      modalImageUrl: '',
-      hiddenNSFW: true,
-      imageList : [],
-      loggedIn : true,
-      sidebar : true,
-    };
-  },
-  methods: {
-    isConnected(){
-      return this.loggedIn;
-    },
-    updateFilters(filter, checked) {
-      if (checked) {
-        this.filters.push(filter);
-      } else {
-        const index = this.filters.indexOf(filter);
-        if (index > -1) {
-          this.filters.splice(index, 1);
-        }
-      }
-    },
-    toggleMenu() {
-      this.sidebar = !this.sidebar;
-      document.getElementById('button-sidebar').innerHTML = this.sidebar
-        ? `<i class="fa-solid fa-chevron-left"></i>`
-        : `<i class="fa-solid fa-chevron-right"></i>`;
-      document.querySelector('.navbar.position-fixed').style.left = this.sidebar ? '' :
-        '0';
-    },
-    shouldShow(criteria) {
-      const nsfwCriteria = 'style-nsfw';
-      if(criteria === "") {
-        return false;
-      }
-      const isNSFW = criteria.split(' ').includes(nsfwCriteria);
-      if (this.hiddenNSFW && isNSFW) {
-        return false;
-      }
-      return this.filters.length === 0 || this.filters.some(filter => criteria.split(' ').includes(filter));
-    },
-    resetFilters() {
-      this.filters = [];
-      const checkboxes = document.querySelectorAll('.filterzone input[type="checkbox"]');
-      checkboxes.forEach(checkbox => checkbox.checked = false);
-      this.hideNSFW();
-    },
-    openModal(url) {
-      console.log(url);
-      this.modalImageUrl = url;
-      this.isModalOpen = true;
-    },
-    closeModal() {
-      this.isModalOpen = false;
-      this.modalImageUrl = '';
-    },
-    hideNSFW() {
-      this.hiddenNSFW = !this.hiddenNSFW;
-    },
-    getImageSrc(imageUrl) {
-      return `/src/assets/Image/${imageUrl}`;
-    },
-  },
-  mounted: function() {
-    () => {
-      this.hiddenNSFW = true
+const filters = ref([]);
+const isModalOpen = ref(false);
+const modalImageUrl = ref('');
+const hiddenNSFW = ref(true);
+const imageList = ref([]);
+const loggedIn = ref(true);
+const sidebar = ref(true);
+
+const isConnected = () => {
+  return loggedIn.value;
+};
+
+const updateFilters = (filter, checked) => {
+  if (checked) {
+    filters.value.push(filter);
+  } else {
+    const index = filters.value.indexOf(filter);
+    if (index > -1) {
+      filters.value.splice(index, 1);
     }
   }
 };
+
+const toggleMenu = () => {
+  sidebar.value = !sidebar.value;
+  document.getElementById('button-sidebar').innerHTML = sidebar.value
+    ? `<i class="fa-solid fa-chevron-left"></i>`
+    : `<i class="fa-solid fa-chevron-right"></i>`;
+  document.querySelector('.navbar.position-fixed').style.left = sidebar.value ? '' : '0';
+};
+
+const shouldShow = (criteria) => {
+  const nsfwCriteria = 'style-nsfw';
+  if(criteria === "") {
+    return false;
+  }
+  const isNSFW = criteria.split(' ').includes(nsfwCriteria);
+  if (hiddenNSFW.value && isNSFW) {
+    return false;
+  }
+  return filters.value.length === 0 || filters.value.some(filter => criteria.split(' ').includes(filter));
+};
+
+const resetFilters = () => {
+  filters.value = [];
+  const checkboxes = document.querySelectorAll('.filterzone input[type="checkbox"]');
+  checkboxes.forEach(checkbox => checkbox.checked = false);
+  hideNSFW();
+};
+
+const openModal = (url) => {
+  console.log(url);
+  modalImageUrl.value = url;
+  isModalOpen.value = true;
+};
+
+const closeModal = () => {
+  isModalOpen.value = false;
+  modalImageUrl.value = '';
+};
+
+const hideNSFW = () => {
+  hiddenNSFW.value = !hiddenNSFW.value;
+};
+
+const getImageSrc = (imageUrl) => {
+  return `/src/assets/Image/${imageUrl}`;
+};
+
+onMounted(() => {
+  hiddenNSFW.value = true;
+});
 </script>
 
 <template>

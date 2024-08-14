@@ -1,10 +1,7 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'MainFooterComponent'
-})
+<script setup>
+defineOptions({ name: 'MainFooterComponent' });
 </script>
+
 
 <template>
   <footer>

@@ -66,17 +66,18 @@
   </section>
 </template>
 
-<script>
-export default {
-  props: {
-    loggedIn: Boolean,
-    activeSection: String
-  },
-  methods: {
-    setActiveSection(section) {
-      this.$emit('update:activeSection', section);
-    }
-  }
+<script setup>
+import { defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
+  loggedIn: Boolean,
+  activeSection: String
+});
+
+const emit = defineEmits(['update:activeSection']);
+
+const setActiveSection = (section) => {
+  emit('update:activeSection', section);
 };
 </script>
 

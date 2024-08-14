@@ -1,13 +1,5 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-import FAQAccordeonComponent
-  from '@/components/TrieurComponents/subComponents/FAQAccordeonComponent.vue'
-
-export default defineComponent({
-  components: {
-    FAQAccordeonComponent
-  }
-})
+<script setup>
+import FAQAccordeonComponent from '@/components/TrieurComponents/subComponents/FAQAccordeonComponent.vue';
 </script>
 
 <template>

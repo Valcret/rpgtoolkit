@@ -114,37 +114,47 @@
   </aside>
 </template>
 
-<script>
-export default {
-  props: {
-    sidebar: {
-      type: Boolean,
-      required: true
-    },
-    loggedIn: {
-      type: Boolean,
-      required: true
-    }
+<script setup>
+import { defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
+  sidebar: {
+    type: Boolean,
+    required: true
   },
-  methods: {
-    toggleMenu() {
-      console.log("toggleMenu called");
-      this.$emit('toggle-menu');
-    },
-    resetFilters() {
-      this.$emit('reset-filters');
-    },
-    updateFilters(filter, checked) {
-      this.$emit('update-filters', filter, checked);
-    },
-    hideNSFW() {
-      this.$emit('hide-nsfw');
-    },
-    isConnected() {
-      return this.loggedIn;
-    }
+  loggedIn: {
+    type: Boolean,
+    required: true
   }
-}
+});
+
+const emit = defineEmits([
+  'toggle-menu',
+  'reset-filters',
+  'update-filters',
+  'hide-nsfw'
+]);
+
+const toggleMenu = () => {
+  console.log("toggleMenu called");
+  emit('toggle-menu');
+};
+
+const resetFilters = () => {
+  emit('reset-filters');
+};
+
+const updateFilters = (filter, checked) => {
+  emit('update-filters', filter, checked);
+};
+
+const hideNSFW = () => {
+  emit('hide-nsfw');
+};
+
+const isConnected = () => {
+  return props.loggedIn;
+};
 </script>
 
 <style scoped>

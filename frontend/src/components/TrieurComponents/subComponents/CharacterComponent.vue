@@ -1,9 +1,5 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'CharacterComponent'
-})
+<script setup>
+defineOptions({ name: 'CharacterComponent' });
 </script>
 
 <template>

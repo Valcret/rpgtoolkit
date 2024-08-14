@@ -74,31 +74,32 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    loggedIn: {
-      type: Boolean,
-      required: true
-    },
-    activeSection: {
-      type: Number,
-      required: true
-    },
-    sidebar: {
-      type: Boolean,
-      required: true
-    },
+<script setup>
+import { defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
+  loggedIn: {
+    type: Boolean,
+    required: true
   },
-  methods: {
-    setActiveSection(section) {
-      // Convertir en nombre si nécessaire avant d'émettre l'événement
-      this.$emit('update:activeSection', Number(section));
-    },
-    toggleMenu() {
-      this.$emit('toggle-menu');
-    },
+  activeSection: {
+    type: Number,
+    required: true
+  },
+  sidebar: {
+    type: Boolean,
+    required: true
   }
+});
+
+const emit = defineEmits(['update:activeSection', 'toggle-menu']);
+
+const setActiveSection = (section) => {
+  emit('update:activeSection', Number(section));
+};
+
+const toggleMenu = () => {
+  emit('toggle-menu');
 };
 </script>
 

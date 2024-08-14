@@ -1,21 +1,16 @@
-<script>
-export default {
-  props: {
-    loggedIn: Boolean,
-    activeSection: String,
-    activeForm: Number,
-  },
-  data() {
-    return {
-      activeForm: 1,
+<script setup>
+import { ref, computed } from 'vue';
 
-    }
-  },
-  methods : {
-    setActiveForm(number){
-      this.activeForm = number
-    }
-  }
+const props = defineProps({
+  loggedIn: Boolean,
+  activeSection: String,
+  activeForm: Number
+});
+
+const activeForm = ref(1);
+
+const setActiveForm = (number) => {
+  activeForm.value = number;
 };
 </script>
 

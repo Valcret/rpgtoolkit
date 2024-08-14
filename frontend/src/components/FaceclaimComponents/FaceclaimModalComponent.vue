@@ -14,37 +14,40 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    isModalOpen: {
-      type: Boolean,
-      required: true
-    },
-    modalImageUrl: {
-      type: String,
-      required: true
-    }
+<script setup>
+import { defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
+  isModalOpen: {
+    type: Boolean,
+    required: true
   },
-  methods: {
-    closeModal() {
-      this.$emit('closeModal');
-    },
-    downloadImage() {
-      const link = document.createElement('a');
-      link.href = this.modalImageUrl;
-      link.download = this.modalImageUrl.substring(this.modalImageUrl.lastIndexOf('/') + 1);
-      link.click();
-    },
-    copyImageUrl() {
-      const publicUrl = `/images/${this.modalImageUrl.split('/').pop()}`;
-      navigator.clipboard.writeText(publicUrl).then(() => {
-        alert('Lien copié dans le presse-papier');
-      }, (err) => {
-        console.error('Erreur lors de la copie du lien : ', err);
-      });
-    }
+  modalImageUrl: {
+    type: String,
+    required: true
   }
+});
+
+const emit = defineEmits(['closeModal']);
+
+const closeModal = () => {
+  emit('closeModal');
+};
+
+const downloadImage = () => {
+  const link = document.createElement('a');
+  link.href = props.modalImageUrl;
+  link.download = props.modalImageUrl.substring(props.modalImageUrl.lastIndexOf('/') + 1);
+  link.click();
+};
+
+const copyImageUrl = () => {
+  const publicUrl = `/images/${props.modalImageUrl.split('/').pop()}`;
+  navigator.clipboard.writeText(publicUrl).then(() => {
+    alert('Lien copié dans le presse-papier');
+  }).catch(err => {
+    console.error('Erreur lors de la copie du lien : ', err);
+  });
 };
 </script>
 

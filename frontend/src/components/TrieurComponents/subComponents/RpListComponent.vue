@@ -1,11 +1,7 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-import RpComponent from '@/components/TrieurComponents/subComponents/RpComponent.vue'
+<script setup>
+import RpComponent from '@/components/TrieurComponents/subComponents/RpComponent.vue';
 
-export default defineComponent({
-  name: 'RpListComponent',
-  components: { RpComponent }
-})
+defineOptions({ name: 'RpListComponent' });
 </script>
 
 <template>

@@ -1,13 +1,9 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-import CharacterForumListComponent
-  from '@/components/TrieurComponents/subComponents/CharacterForumListComponent.vue'
+<script setup>
+import CharacterForumListComponent from '@/components/TrieurComponents/subComponents/CharacterForumListComponent.vue';
 
-export default defineComponent({
-  name: 'CharacterListTrieurComponent',
-  components: { CharacterForumListComponent }
-})
+defineOptions({ name: 'CharacterListTrieurComponent' });
 </script>
+
 
 <template>
   <section

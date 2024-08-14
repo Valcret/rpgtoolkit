@@ -51,23 +51,14 @@
   </section>
 </template>
 
-<script>
-import RpListComponent
-  from '@/components/TrieurComponents/subComponents/RpListComponent.vue'
+<script setup>
+import { ref } from 'vue';
+import RpListComponent from '@/components/TrieurComponents/subComponents/RpListComponent.vue';
 
-export default {
-  name: 'RpListTrieurComponent',
-  components: { RpListComponent },
-  data() {
-    return {
-      activeList: 1 // Valeur par défaut
-    };
-  },
-  methods: {
-    setActiveList(list) {
-      this.activeList = list;
-    }
-  }
+const activeList = ref(1); // Valeur par défaut
+
+const setActiveList = (list) => {
+  activeList.value = list;
 };
 </script>
 

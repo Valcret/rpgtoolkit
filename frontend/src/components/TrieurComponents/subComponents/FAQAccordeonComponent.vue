@@ -1,26 +1,22 @@
-<script>
-export default {
-  name: 'FAQAccordeonComponent',
-  props: {
-    headerText: {
-      type: String,
-      required: true
-    },
-    contentText: {
-      type: String,
-      required: true
-    }
+<script setup>
+import { ref } from 'vue';
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  headerText: {
+    type: String,
+    required: true
   },
-  data() {
-    return {
-      isOpen: false
-    };
-  },
-  methods: {
-    toggleAccordion() {
-      this.isOpen = !this.isOpen;
-    }
+  contentText: {
+    type: String,
+    required: true
   }
+});
+
+const isOpen = ref(false);
+
+const toggleAccordion = () => {
+  isOpen.value = !isOpen.value;
 };
 </script>
 

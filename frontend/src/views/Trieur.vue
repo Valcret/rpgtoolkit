@@ -1,4 +1,5 @@
-<script>
+<script setup>
+import { ref } from 'vue';
 import SidebarComponent from '@/components/TrieurComponents/SidebarTrieurComponent.vue';
 import HomeComponent from '@/components/TrieurComponents/HomeTrieurComponent.vue';
 import AjoutComponent from '@/components/TrieurComponents/AjoutTrieurComponent.vue';
@@ -7,39 +8,20 @@ import CharacterListComponent from '@/components/TrieurComponents/CharacterListT
 import ForumListComponent from '@/components/TrieurComponents/ForumListTrieurComponent.vue';
 import FAQComponent from '@/components/TrieurComponents/FAQTrieurComponent.vue';
 
-export default {
-  components: {
-    SidebarComponent,
-    HomeComponent,
-    AjoutComponent,
-    RpListComponent,
-    CharacterListComponent,
-    ForumListComponent,
-    FAQComponent
-  },
-  data() {
-    return {
-      activeSection: 1,
-      sidebar: true, // Renommé de 'connected' en 'sidebar' pour plus de clarté
-      loggedIn: true
-    };
-  },
-  methods: {
-    updateActiveSection(section) {
-      this.activeSection = Number(section);
-    },
-    toggleMenu() {
-      this.sidebar = !this.sidebar;
-      document.getElementById('button-sidebar').innerHTML = this.sidebar
-        ? `<i class="fa-solid fa-chevron-left"></i>`
-        : `<i class="fa-solid fa-chevron-right"></i>`;
-      document.querySelector('.navbar.position-fixed').style.left = this.sidebar ? '' :
-        '0';
-    }
-  },
-  mounted() {
+const activeSection = ref(1);
+const sidebar = ref(true); // Renommé de 'connected' en 'sidebar' pour plus de clarté
+const loggedIn = ref(true);
 
-  }
+const updateActiveSection = (section) => {
+  activeSection.value = Number(section);
+};
+
+const toggleMenu = () => {
+  sidebar.value = !sidebar.value;
+  document.getElementById('button-sidebar').innerHTML = sidebar.value
+    ? `<i class="fa-solid fa-chevron-left"></i>`
+    : `<i class="fa-solid fa-chevron-right"></i>`;
+  document.querySelector('.navbar.position-fixed').style.left = sidebar.value ? '' : '0';
 };
 </script>
 

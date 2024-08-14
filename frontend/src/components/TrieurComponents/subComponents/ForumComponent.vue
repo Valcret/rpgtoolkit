@@ -1,9 +1,5 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'ForumComponent'
-})
+<script setup>
+defineOptions({ name: 'ForumComponent' });
 </script>
 
 <template>

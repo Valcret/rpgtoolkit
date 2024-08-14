@@ -10,34 +10,35 @@
   </a>
 </template>
 
-<script>
-export default {
-  props: {
-    url: {
-      type: String,
-      required: true
-    },
-    name: {
-      type: String,
-      required: true
-    },
-    size: {
-      type: Array,
-      required: true
-    },
-    getImageSrc: {
-      type: Function,
-      required: true
-    },
+<script setup>
+import { defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
+  url: {
+    type: String,
+    required: true
   },
-  methods: {
-    handleClick(event) {
-      const clickedElement = event.currentTarget;
-      const img = clickedElement.querySelector('img');
-      const url = img.getAttribute('src');
-      this.$emit('avatarClick', url); // Émet l'URL de l'image cliquée
-    }
-  }
+  name: {
+    type: String,
+    required: true
+  },
+  size: {
+    type: Array,
+    required: true
+  },
+  getImageSrc: {
+    type: Function,
+    required: true
+  },
+});
+
+const emit = defineEmits(['avatarClick']);
+
+const handleClick = (event) => {
+  const clickedElement = event.currentTarget;
+  const img = clickedElement.querySelector('img');
+  const url = img.getAttribute('src');
+  emit('avatarClick', url); // Émet l'URL de l'image cliquée
 };
 </script>
 
