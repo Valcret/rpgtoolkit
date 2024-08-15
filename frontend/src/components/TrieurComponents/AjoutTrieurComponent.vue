@@ -39,15 +39,15 @@ const setActiveForm = (number) => {
 
             <div class="container-onglets">
               <div @click="setActiveForm(1)" class="onglets"
-                   :class="{'active':this.activeForm===1}">RPs</div>
+                   :class="{'active':activeForm===1}">RPs</div>
               <div @click="setActiveForm(2)" class="onglets"
-                   :class="{'active':this.activeForm===2}">Forum</div>
+                   :class="{'active':activeForm===2}">Forum</div>
               <div @click="setActiveForm(3)" class="onglets"
-                   :class="{'active':this.activeForm===3}">Perso</div>
+                   :class="{'active':activeForm===3}">Perso</div>
             </div>
             <div class="contenu"
-                 :class="{'active-contenu':this.activeForm===1}"
-                 v-show="this.activeForm===1">
+                 :class="{'active-contenu':activeForm===1}"
+                 v-show="activeForm===1">
               <h3>Remplis le formulaire ci dessous pour ajouter ton rp</h3>
 
               <form action="#" class="formulairetype" method="post">
@@ -93,8 +93,8 @@ const setActiveForm = (number) => {
 
             </div>
             <div class="contenu"
-                 :class="{'active-contenu':this.activeForm===2}"
-                 v-show="this.activeForm===2">
+                 :class="{'active-contenu':activeForm===2}"
+                 v-show="activeForm===2">
               <h3>Remplis le formulaire ci dessous pour ajouter ton forum</h3>
 
               <form action="#" class="formulairetype" method="post">
@@ -122,8 +122,8 @@ const setActiveForm = (number) => {
               </form>
             </div>
             <div class="contenu"
-                 :class="{'active-contenu':this.activeForm===3}"
-                 v-show="this.activeForm===3">
+                 :class="{'active-contenu':activeForm===3}"
+                 v-show="activeForm===3">
               <h3>Remplis le formulaire ci dessous pour ajouter ton personnage</h3>
 
               <form action="#" class="formulairetype" method="post">

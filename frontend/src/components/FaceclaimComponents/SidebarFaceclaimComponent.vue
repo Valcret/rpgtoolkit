@@ -1,15 +1,15 @@
 <template>
-  <aside v-show="this.sidebar" class="menufichecraft">
+  <aside v-show="sidebar" class="menufichecraft">
     <!--bouton ouverture fermeture-->
-    <button class="close-btn" @click="this.toggleMenu()"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="close-btn" @click="toggleMenu()"><i class="fa-solid fa-chevron-left"></i></button>
     <a href="/"><img src="../../assets/Image/Facelaime_rpg.png"></a>
     <!--Zone de connection admin rapide-->
     <div class="adminconnect">
-      <a v-show="this.isConnected()===false" href="/connect" class="navboutontrieur"
+      <a v-show="isConnected()===false" href="/connect" class="navboutontrieur"
          title="Connexion">
         <i class="bi bi-toggle-off"></i>
       </a>
-      <a v-show="this.isConnected()===true" href="/connect" class="navboutontrieur"
+      <a v-show="isConnected()===true" href="/connect" class="navboutontrieur"
          title="Déconnexion">
         <i class="bi bi-toggle-on"></i>
       </a>

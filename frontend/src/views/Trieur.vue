@@ -34,8 +34,8 @@ const toggleMenu = () => {
       :activeSection="activeSection"
       @update:activeSection="updateActiveSection"
     />
-    <button v-show="!this.sidebar" class="open-btn"
-            @click="this.toggleMenu()"><i class="fa-solid fa-chevron-left"></i></button>
+    <button v-show="!sidebar" class="open-btn"
+            @click="toggleMenu()"><i class="fa-solid fa-chevron-left"></i></button>
     <!--page de gauche avec sections liés aux onglets-->
     <div id="page-content-wrapper">
       <!--bouton x fixe pour fermer la navigations-->

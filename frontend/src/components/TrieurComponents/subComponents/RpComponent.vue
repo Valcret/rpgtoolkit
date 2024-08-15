@@ -1,5 +1,5 @@
 <template>
-  <div class="article1">
+  <div class="article1" :id="'rp-' + id">
     <div class="article1haut">
       <div class="iconexemple">
         <a
@@ -62,7 +62,7 @@
 </template>
 
 <script setup>
-import { defineProps, computed, defineEmits } from 'vue';
+import { defineProps, computed, defineEmits, ref } from 'vue';
 
 const props = defineProps({
   id: Number,
@@ -77,9 +77,11 @@ const props = defineProps({
   isPriority: Boolean
 });
 
-const emit = defineEmits(['removeItem']);
+const emit = defineEmits(['changeList']);
 
-// Fonction computed pour ajouter des séparateurs entre les participants
+// Utilisation d'une variable réactive pour suivre l'état de la priorité
+const isPriority = ref(props.isPriority);
+
 const participantsWithSeparators = computed(() => {
   return props.participants.map((participant, index) => ({
     ...participant,
@@ -88,6 +90,8 @@ const participantsWithSeparators = computed(() => {
 });
 
 const prioritize = () => {
+  // Inverser la valeur de la priorité
+  isPriority.value = !isPriority.value;
   emit('changeList', "prioritize", props.id); // Émet l'événement avec l'id
 }
 

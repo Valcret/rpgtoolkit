@@ -71,7 +71,7 @@ import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
   loggedIn: Boolean,
-  activeSection: String
+  activeSection: Number
 });
 
 const emit = defineEmits(['update:activeSection']);

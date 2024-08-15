@@ -23,7 +23,7 @@ import RpComponent from '@/components/TrieurComponents/subComponents/RpComponent
 
 const props = defineProps({
   listType: {
-    type: Number,
+    type: String,
     required: true,
   }
 });
@@ -73,27 +73,36 @@ const fetchRps = () => {
   ];
 }
 
+const remove = (id) => {
+  // Filtrer l'élément à supprimer de la liste
+  console.log(rps.value)
+  rps.value = rps.value.filter(rp => rp.id !== id);
+  console.log(rps.value)
+}
+
 const handleChangeList = (action, id) => {
   switch (action) {
     case "prioritize":
-      if(props.listType === 1){
-        //remove
+      if(props.listType === "1"){
+        remove(id)
+        //updateListe
       }
       console.log(`Prioritize: ${id}`);
       break;
     case "reply":
-      //remove
+      remove(id)
+      //updateListe
       console.log(`Reply: ${id}`);
       break;
     case "archive":
-      //remove
+      remove(id)
+      //updateListe
       console.log(`Archive: ${id}`);
       break;
     default:
       console.log(`Action inconnue: ${action}`);
       break;
   }
-  //updateListe
 }
 
 // Récupère les RPs lorsque le composant est monté ou lorsque listType change

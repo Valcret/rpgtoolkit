@@ -1,5 +1,5 @@
 <template>
-  <div  v-show="this.sidebar"  id="sidebar-wrapper">
+  <div  v-show="sidebar"  id="sidebar-wrapper">
     <!-- Icone accueil -->
     <a class="d-block text-center text-decoration-none logo mb-4" data-bs-placement="right"
        data-bs-toggle="tooltip" href="/" title="Retour à l'accueil">

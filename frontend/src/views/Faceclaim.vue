@@ -79,8 +79,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <button style="display:block !important"v-show="!this.sidebar" class="open-btn"
-          @click="this.toggleMenu()"><i
+  <button style="display:block !important"v-show="!sidebar" class="open-btn"
+          @click="toggleMenu()"><i
     class="fa-solid fa-chevron-right"></i></button>
   <main class="fichecraft">
     <!--Zone de gauche-->
