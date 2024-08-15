@@ -1,5 +1,9 @@
 <script setup>
 import CharacterComponent from '@/components/TrieurComponents/subComponents/CharacterComponent.vue';
+
+const props = defineProps(
+  forum : Object,
+)
 </script>
 
 <template>

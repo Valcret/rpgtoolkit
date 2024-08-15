@@ -1,7 +1,12 @@
 <script setup>
 import CharacterForumListComponent from '@/components/TrieurComponents/subComponents/CharacterForumListComponent.vue';
+import { defineProps } from 'vue'
 
 defineOptions({ name: 'CharacterListTrieurComponent' });
+const props = defineProps({
+  ForaCharacters : Object,
+
+});
 </script>
 
 
@@ -23,12 +28,14 @@ defineOptions({ name: 'CharacterListTrieurComponent' });
       <!--Liste des persos par fofo-->
       <div class="trieurpersonnagezone">
         <!--Boite pour un forum-->
-        <CharacterForumListComponent />
-        <CharacterForumListComponent />
-        <CharacterForumListComponent />
-        <CharacterForumListComponent />
-        <CharacterForumListComponent />
-        <CharacterForumListComponent />
+        <CharacterForumListComponent
+          v-for="(forum, index) in props.ForaCharacters" :key="forum.id"
+          :forumName="forum.name"
+          :forum ="forum"
+          :index ="index"
+        />
+
+        <CharacterForumListComponent/>
       </div>
     </div>
   </section>
