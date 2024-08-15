@@ -2,7 +2,7 @@
   <div class="avatarfacelaim">
     <AvatarComponent
       v-for="image in imageList"
-      :key="image.url"
+      :key="image.id"
       :url="image.url"
       :name="image.name"
       :size="image.size"

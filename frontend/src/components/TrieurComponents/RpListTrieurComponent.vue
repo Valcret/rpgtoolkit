@@ -41,10 +41,10 @@
               Archivés
             </div>
           </div>
-          <RpListComponent v-show="activeList === 1"/>
-          <RpListComponent v-show="activeList === 2"/>
-          <RpListComponent v-show="activeList === 3"/>
-          <RpListComponent v-show="activeList === 4"/>
+          <RpListComponent v-show="activeList === 1" list-type="1"/>
+          <RpListComponent v-show="activeList === 2" list-type="2"/>
+          <RpListComponent v-show="activeList === 3" list-type="3"/>
+          <RpListComponent v-show="activeList === 4" list-type="4"/>
       </div>
      </div>
     </div>
