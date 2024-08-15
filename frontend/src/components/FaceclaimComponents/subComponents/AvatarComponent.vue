@@ -2,7 +2,7 @@
   <a class="image test"
      @click="handleClick"
      href="javascript:void(0)">
-    <img :src="getImageSrc(url)" :alt="`Avatar ${size.join('x')}`">
+    <img :src="computedImageSrc" :alt="`Avatar ${size.join('x')}`">
     <div class="info">
       <p>{{ name }}</p>
       <p>Taille: {{ size.join('x') }}</p>
@@ -10,35 +10,43 @@
   </a>
 </template>
 
-<script setup>
-import { defineProps, defineEmits } from 'vue';
+<script>
+import { computed } from 'vue';
 
-const props = defineProps({
-  url: {
-    type: String,
-    required: true
+export default {
+  props: {
+    url: {
+      type: String,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    size: {
+      type: Array,
+      required: true
+    },
+    getImageSrc: {
+      type: Function,
+      required: true
+    }
   },
-  name: {
-    type: String,
-    required: true
-  },
-  size: {
-    type: Array,
-    required: true
-  },
-  getImageSrc: {
-    type: Function,
-    required: true
-  },
-});
+  setup(props, { emit }) {
+    // Calculer l'URL de l'image avec une computed property
+    const computedImageSrc = computed(() => props.getImageSrc(props.url));
 
-const emit = defineEmits(['avatarClick']);
+    // Gérer le clic sur l'avatar
+    const handleClick = () => {
+      emit('avatarClick', computedImageSrc.value);
+    };
 
-const handleClick = (event) => {
-  const clickedElement = event.currentTarget;
-  const img = clickedElement.querySelector('img');
-  const url = img.getAttribute('src');
-  emit('avatarClick', url); // Émet l'URL de l'image cliquée
+    // Retourner les références pour être utilisées dans le template
+    return {
+      computedImageSrc,
+      handleClick
+    };
+  }
 };
 </script>
 
