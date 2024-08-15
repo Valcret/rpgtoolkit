@@ -1,46 +1,56 @@
 <script setup>
 import CharacterForumListComponent from '@/components/TrieurComponents/subComponents/CharacterForumListComponent.vue';
-import { defineProps } from 'vue'
+import { defineProps } from 'vue';
 
 defineOptions({ name: 'CharacterListTrieurComponent' });
-const props = defineProps({
-  ForaCharacters : Object,
 
+const props = defineProps({
+  ForaCharacters: Array,
 });
+
+// Exemple de données ForaCharacters
+const ForaCharacters = [
+  {
+    id: 1,
+    name: "fofotest",
+    characters: [
+      { id: 25, name: "Test 1", url: "ta race" },
+      { id: 26, name: "Test 2", url: "ta race" },
+      { id: 27, name: "Test 3", url: "ta race" }
+    ]
+  },
+  {
+    id: 2,
+    name: "fofotest2",
+    characters: [
+      { id: 28, name: "Test 4", url: "ta race" },
+      { id: 29, name: "Test 5", url: "ta race" }
+    ]
+  }
+];
 </script>
 
-
 <template>
-  <section
-    id="section-4"
-    class="content-section">
+  <section id="section-4" class="content-section">
     <div class="container-fluid">
       <div class="trieurintrotop">
-        <!--Intro toolki-->
         <div>
-          <h2>Whaaa c'es toi qui joue tout ça ? </h2>
-          <!--Pour tout utilisateur-->
-          <p>Ici tu peux gérer tes personnages ! Ou te rappeler combien t'en
-            as...</p>
+          <h2>Whaaa c'est toi qui joue tout ça ?</h2>
+          <p>Ici tu peux gérer tes personnages ! Ou te rappeler combien t'en as...</p>
         </div>
         <img class="trieurtoolki" src="../../assets/Image/Trieur_rpg.png" />
       </div>
-      <!--Liste des persos par fofo-->
       <div class="trieurpersonnagezone">
-        <!--Boite pour un forum-->
         <CharacterForumListComponent
-          v-for="(forum, index) in props.ForaCharacters" :key="forum.id"
-          :forumName="forum.name"
-          :forum ="forum"
-          :index ="index"
+          v-for="(forum, index) in ForaCharacters"
+          :key="forum.id"
+          :forum="forum"
         />
-
-        <CharacterForumListComponent/>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-
+/* Ajouter les styles ici */
 </style>

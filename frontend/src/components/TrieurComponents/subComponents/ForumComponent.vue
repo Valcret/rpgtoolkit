@@ -1,12 +1,18 @@
 <script setup>
+import { defineProps } from 'vue';
+
 defineOptions({ name: 'ForumComponent' });
+
+const props = defineProps({
+  forum: Object
+});
 </script>
 
 <template>
   <div class="listeforum">
     <div class="entetefofo">
-      <a href="#"><img src="../assets/Image/Toolkit_rpg.png" /></a>
-      <h3>Nom du forum</h3>
+      <a :href="forum.url"><img :src="forum.image" /></a>
+      <h3>{{ forum.name }}</h3>
     </div>
     <div class="listefofo">
       <div class="iconmodofofo">
@@ -18,5 +24,5 @@ defineOptions({ name: 'ForumComponent' });
 </template>
 
 <style scoped>
-
+/* Ajouter les styles ici */
 </style>
